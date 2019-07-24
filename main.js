@@ -43,4 +43,3 @@ function setTimer() {
         m++;
     }, 3000)
 }
-}
