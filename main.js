@@ -39,7 +39,8 @@ function playSlide(index) {
 
 function setTimer() {
     return setInterval(() => {
+        console.log(new Date());
         playSlide(m % size);
         m++;
-    }, 3000)
+    }, 1000)
 }
