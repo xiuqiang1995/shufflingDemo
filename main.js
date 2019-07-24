@@ -51,7 +51,7 @@ function goToSlide(index) {
         //从最后一张到第一张,先到假的第一张上，再隐藏幻灯片，再瞬间切换到真的第一张,再显示幻灯片
         //为什么要用 ` `
         $slides.css({ transform: `translateX(${- (index+4) * 275}px)` }).one('transitionend', function() {
-            //动画结束后 
+            //动画结束后 （这个过程有点久，导致bug出现）
             //hide() show() 连用时，浏览器会忽略hide 导致hide无效 使用offset断开这两个操作便可以使hide生效
             $slides.hide().offset();
             $slides.css({ transform: `translateX(${- (index+1) * 275}px)` }).show();
