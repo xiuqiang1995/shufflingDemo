@@ -14,6 +14,8 @@ $slides.prepend($lastCopy);
 $slides.css({ transform: 'translateX(-275px)' })
     //当前页下标
 let current = 0;
+//轮播定时器触发间隔
+let intervalTime = 1000;
 
 //上一页、下一页
 $(next).on('click', function() {
@@ -25,14 +27,14 @@ $(previous).on('click', function() {
     //自动轮播
 var timer = setInterval(function() {
         goToSlide(current + 1)
-    }, 2000)
+    }, intervalTime)
     //鼠标移入暂停、移出恢复
 $('.container').on('mouseenter', function() {
     window.clearInterval(timer);
 }).on('mouseleave', function() {
     timer = setInterval(function() {
         goToSlide(current + 1)
-    }, 2000)
+    }, intervalTime)
 })
 
 $('#buttonWrapper').on('click', 'button', function(e) {
